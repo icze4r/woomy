@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>woomy</title>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+	background-color: #000;
+}
+
+.column {
+	float: left;
+	width: 25%;
+	padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+body {
+  display: table;
+  width: 100%;
+}
+body > span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.no
+{}
+
+@media only screen and (max-width: 1280px) {
+.no
+{
+display: none;
+}
+.column
+{width: 50%;}
+
+}
+
+.text { cursor: url('data:image/x-icon;base64,AAACAAEAICAQAAAAAADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAABBQAATf8ACn76AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAACIAAAAAAAAAAAAjMgAAAAIzIAAAAAAAAAACMzMgAAAjQzIAAAAAAAAAJDRDIAAAITQzIAAAAAAAACFEMgAAAAIUQyAAAAAAAAAhRCAAAAAAIUMgAAAAAAAAIUQgAAAAACFEIAAAAAAAACFEIAAAAAAkRCAAAAAAAAAkRCAAAAAAJEMgAAAAAAAAAkMiAiAiAiNCAAAAAAAAAAIyQyQyQyMyMgAAAAAAAAACMhQhMkMkMjIAAAAAAAAAACIUQUQUREIgAAAAAAAAAAAjRCIkIiRDIAAAAAAAAAAAAjIiIiIiQgAAAAAAAAAAAAIiERIREiIAAAAAAAAAAAIjIRIhIhEjIgAAAAAAAAIjMyESISIRIzMiAAAAAAAjREMiIiIiIiMzMyAAAAACREQiNERERERCJEMyAAAAAkFDREREREREREREMgAAAAAhFEEURERERERERCAAAAAAJBREEUREREREREMgAAAAAAJBREREREREREFCAAAAAAAAJBREREREREQRIAAAAAAAAAJBRERERERBEgAAAAAAAAAAJBRERERERCAAAAAAAAAAAAJBFEREREIAAAAAAAAAAAAAJBERREQgAAAAAAAAAAAAAAIUERRCAAAAAAAAAAAAAAAAIkRCIAAAAAAAAAAAAAAAAAAiIAAAAAAAAAD/n/P//w/h//4HwP/8B8B//A/gf/wf8H/8H/B//B/wf/wf8H/+CSD//gAA//4AAP//AAH//wAB//+AA///gAP//gAA//gAAD/wAAAf4AAAD+AAAA/wAAAf8AAAH/gAAD/8AAB//gAA//8AAf//gAP//8AH///gD///8B////x//w=='), auto; }
+
+</style>
+
+<script>
+function playAudio(url)
+{
+  new Audio(url).play();
+}
+</script>
+
+<script>
+window.addEventListener('keydown', function(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+    audio.currentTime = 0; // rewind to the start of audio
+    audio.play();
+    key.classList.add('playing')
+});
+</script>
+
+</head>
+<body>
+
+<audio preload="auto">
+	<source src="woomy.ogg" type="audio/ogg">
+	<source src="veemo.ogg" type="audio/ogg">
+</audio>
+
+<div data-key="86" class="key"></div>
+<audio data-key="86" src="veemo.ogg"></audio>
+
+<div data-key="87" class="key"></div>
+<audio data-key="87" src="woomy.ogg"></audio>
+
+<span>
+<div class="text row">
+  <div class="column no"></div>
+  <div class="column">
+    <img onclick="playAudio('woomy.ogg')" src="woomy.jpg" alt="a woomy smiling" style="width: 100%;" />
+  </div>
+  <div class="column">
+    <img onclick="playAudio('veemo.ogg')" src="veemo.jpg" alt="a veemo smiling" style="width: 100%;" />
+ </div>
+ 
+  <div class="column no"></div>
+</div>
+</span>
+
+</body>
+</html>
+
+<!--
+
+Hiya!
+
+StackOverflow sucks.  But there are two users who helped me a lot: thank you to Bosnian Coder, and Leafyshark.
+
+Play Audio on Keypress
+https://stackoverflow.com/questions/48358589/how-to-play-a-sound-when-a-key-is-pressed-with-javascript
+
+Play Audio on Click
+https://stackoverflow.com/a/56206462
+
+You guys are awesome. And nice.
+
+ok i love u bye-bye c(◕ᴗ◕✿)
+
+-->
